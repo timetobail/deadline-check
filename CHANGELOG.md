@@ -17,3 +17,7 @@ First release.
 - Limits: files over 1 MB and binary files are skipped, symlinks are not followed, at most 20,000 files are read.
 - CLI: `node dist/cli.js [path]` prints the same findings locally.
 - Zero npm dependencies; runs on `node24`.
+
+## 0.1.1 — 2026-10-19
+
+- Shorter action description for the GitHub Marketplace (under 125 characters).

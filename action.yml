@@ -1,5 +1,5 @@
 name: Time to Bail deadline check
-description: Finds code and config that a dated vendor change will break (runners, runtimes, model ids, hosts) and reports the date and the fix.
+description: Warns you before cloud and AI vendors break your build: retired runners, runtimes and model ids, with date and fix.
 author: Time to Bail
 branding:
   icon: clock
