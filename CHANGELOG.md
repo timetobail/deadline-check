@@ -21,3 +21,7 @@ First release.
 ## 0.1.1 — 2026-10-19
 
 - Shorter action description for the GitHub Marketplace (under 125 characters).
+
+## 0.1.2 — 2026-10-19
+
+- First GitHub Marketplace release. No code changes.
