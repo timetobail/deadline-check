@@ -1,0 +1,748 @@
+{
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "Time to Bail (https://timetobail.com)",
+  "generatedAt": "2026-10-17T11:15:13.129Z",
+  "count": 33,
+  "rules": [
+    {
+      "ruleId": "vertex-ai-gemini-2-5",
+      "eventId": "evt_vertex_ai_gemini_2_5_retirement_2026",
+      "slug": "vertex-ai-gemini-2-5-retirement-2026",
+      "title": "Gemini 2.5 model on Vertex AI",
+      "event": "Gemini 2.5 models retire on Vertex AI on October 20, 2026",
+      "gateAt": "2026-10-20",
+      "daysLeft": 3,
+      "verdict": "Act",
+      "fix": [
+        "Point your app to a model Google lists as the upgrade, such as `gemini-3.8-flash`.",
+        "Test the features you need most.",
+        "Deploy the change as you usually do."
+      ],
+      "url": "https://timetobail.com/e/vertex-ai-gemini-2-5-retirement-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}",
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}",
+        "*.{json,tf}"
+      ],
+      "pattern": "(?<![\\w.-])gemini-2\\.5-(?:pro|flash|flash-lite)(?![\\w.-])",
+      "fileRequires": "vertex|aiplatform",
+      "fileFlags": "i",
+      "hint": "Point your app to a newer model Google lists, such as gemini-3.8-flash, and test it."
+    },
+    {
+      "ruleId": "gke-1-31",
+      "eventId": "evt_gke_1_31_end_of_extended_support_2026",
+      "slug": "gke-1-31-end-of-extended-support-2026",
+      "title": "GKE cluster on 1.31",
+      "event": "GKE 1.31 extended support ends October 22, 2026",
+      "gateAt": "2026-10-22",
+      "daysLeft": 5,
+      "verdict": "Act",
+      "fix": [
+        "Upgrade the control plane yourself first: `gcloud container clusters upgrade CLUSTER_NAME --master --location=CONTROL_PLANE_LOCATION`",
+        "Then upgrade each node pool: `gcloud container clusters upgrade CLUSTER_NAME --node-pool=NODE_POOL_NAME --location=CONTROL_PLANE_LOCATION`"
+      ],
+      "url": "https://timetobail.com/e/gke-1-31-end-of-extended-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf"
+      ],
+      "pattern": "\\b(?:min_master_version|kubernetes_version|node_version|version)\\s*=\\s*\"1\\.31(?:\\.\\d+(?:-gke\\.\\d+)?)?\"",
+      "fileRequires": "google_container_cluster|google_container_node_pool|terraform-google-modules/kubernetes-engine",
+      "hint": "Upgrade the control plane, then each node pool, to 1.32 or newer before GKE does it for you."
+    },
+    {
+      "ruleId": "openai-legacy-models-code",
+      "eventId": "evt_openai_legacy_models_shutdown_2026",
+      "slug": "openai-legacy-models-shutdown-2026",
+      "title": "OpenAI model shut down Oct 23",
+      "event": "OpenAI shuts down gpt-4, gpt-3.5-turbo, o1 and o4-mini on October 23",
+      "gateAt": "2026-10-23",
+      "daysLeft": 6,
+      "verdict": "Act",
+      "fix": [
+        "Change the model name to its substitute. Most go to `gpt-5.6-sol` or `gpt-5.6-terra`. `gpt-4.1-nano` goes to `gpt-5.6-luna`.",
+        "See what shuts down next: call `GET /v1/models` and read each model's `shutdown_date`.",
+        "Need an old model for longer? OpenAI says to ask its sales team about dedicated capacity."
+      ],
+      "url": "https://timetobail.com/e/openai-legacy-models-shutdown-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}"
+      ],
+      "pattern": "([\"'\\x60])(?:gpt-3\\.5-turbo|gpt-4|gpt-4-1106-preview|gpt-4-turbo|gpt-4\\.1-nano|gpt-4o-2024-05-13|gpt-image-1)\\1",
+      "exclude": "encoding_for_model|tiktoken|get_encoding",
+      "hint": "Change the model name: most go to gpt-5.6-sol or gpt-5.6-terra; gpt-4.1-nano goes to gpt-5.6-luna."
+    },
+    {
+      "ruleId": "openai-legacy-models-config",
+      "eventId": "evt_openai_legacy_models_shutdown_2026",
+      "slug": "openai-legacy-models-shutdown-2026",
+      "title": "OpenAI model shut down Oct 23",
+      "event": "OpenAI shuts down gpt-4, gpt-3.5-turbo, o1 and o4-mini on October 23",
+      "gateAt": "2026-10-23",
+      "daysLeft": 6,
+      "verdict": "Act",
+      "fix": [
+        "Change the model name to its substitute. Most go to `gpt-5.6-sol` or `gpt-5.6-terra`. `gpt-4.1-nano` goes to `gpt-5.6-luna`.",
+        "See what shuts down next: call `GET /v1/models` and read each model's `shutdown_date`.",
+        "Need an old model for longer? OpenAI says to ask its sales team about dedicated capacity."
+      ],
+      "url": "https://timetobail.com/e/openai-legacy-models-shutdown-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}"
+      ],
+      "pattern": "^[ \\t]*[\"']?[\\w.-]*model[\\w.-]*[\"']?[ \\t]*[:=][ \\t]*[\"']?(?:gpt-3\\.5-turbo|gpt-4|gpt-4-1106-preview|gpt-4-turbo|gpt-4\\.1-nano|gpt-4o-2024-05-13|gpt-image-1|o1|o1-pro|o3-mini|o4-mini)[\"']?[ \\t]*(?:#.*)?\\r?$",
+      "flags": "i",
+      "hint": "Change the model name: most go to gpt-5.6-sol or gpt-5.6-terra; gpt-4.1-nano goes to gpt-5.6-luna."
+    },
+    {
+      "ruleId": "openai-legacy-o-models-code",
+      "eventId": "evt_openai_legacy_models_shutdown_2026",
+      "slug": "openai-legacy-models-shutdown-2026",
+      "title": "OpenAI o-model shut down Oct 23",
+      "event": "OpenAI shuts down gpt-4, gpt-3.5-turbo, o1 and o4-mini on October 23",
+      "gateAt": "2026-10-23",
+      "daysLeft": 6,
+      "verdict": "Act",
+      "fix": [
+        "Change the model name to its substitute. Most go to `gpt-5.6-sol` or `gpt-5.6-terra`. `gpt-4.1-nano` goes to `gpt-5.6-luna`.",
+        "See what shuts down next: call `GET /v1/models` and read each model's `shutdown_date`.",
+        "Need an old model for longer? OpenAI says to ask its sales team about dedicated capacity."
+      ],
+      "url": "https://timetobail.com/e/openai-legacy-models-shutdown-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}"
+      ],
+      "pattern": "([\"'\\x60])(?:o1|o1-pro|o3-mini|o4-mini)\\1",
+      "fileRequires": "openai",
+      "fileExcludes": "azure",
+      "fileFlags": "i",
+      "hint": "Change o1, o1-pro and o3-mini to gpt-5.6-sol, and o4-mini to gpt-5.6-terra."
+    },
+    {
+      "ruleId": "amazon-pinpoint-sdk",
+      "eventId": "evt_amazon_pinpoint_end_of_support_2026",
+      "slug": "amazon-pinpoint-end-of-support-2026",
+      "title": "Pinpoint campaigns, segments or endpoints",
+      "event": "Amazon Pinpoint campaigns and segments end October 30, 2026",
+      "gateAt": "2026-10-30",
+      "daysLeft": 13,
+      "verdict": "Bail",
+      "fix": [
+        "Export your endpoints first: Make a segment with no filters, then export it to S3 or your computer."
+      ],
+      "url": "https://timetobail.com/e/amazon-pinpoint-end-of-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{ts,js,mjs,cjs,py}"
+      ],
+      "pattern": "\\b(?:Create|Update|Delete)(?:Campaign|Segment|Journey|Endpoint)Command\\b|\\.(?:create|update)_(?:campaign|segment|journey|endpoint)\\(",
+      "fileRequires": "@aws-sdk/client-pinpoint[\"']|\\bclient\\(\\s*[\"']pinpoint[\"']",
+      "hint": "Export your endpoints, then move campaigns to Connect outbound campaigns and email to Amazon SES."
+    },
+    {
+      "ruleId": "amazon-pinpoint-terraform",
+      "eventId": "evt_amazon_pinpoint_end_of_support_2026",
+      "slug": "amazon-pinpoint-end-of-support-2026",
+      "title": "Amazon Pinpoint project",
+      "event": "Amazon Pinpoint campaigns and segments end October 30, 2026",
+      "gateAt": "2026-10-30",
+      "daysLeft": 13,
+      "verdict": "Bail",
+      "fix": [
+        "Export your endpoints first: Make a segment with no filters, then export it to S3 or your computer."
+      ],
+      "url": "https://timetobail.com/e/amazon-pinpoint-end-of-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf"
+      ],
+      "pattern": "^[ \\t]*resource\\s+\"aws_pinpoint_(?:app|email_template|event_stream)\"",
+      "hint": "Export your endpoints, then move campaigns to Connect outbound campaigns and email to Amazon SES."
+    },
+    {
+      "ruleId": "cloud-functions-nodejs-20",
+      "eventId": "evt_cloud_functions_nodejs_20_decommission_2026",
+      "slug": "cloud-functions-nodejs-20-decommission-2026",
+      "title": "Cloud Run functions on nodejs20",
+      "event": "Node.js 20 functions on Google Cloud: decommissioned October 30, 2026",
+      "gateAt": "2026-10-30",
+      "daysLeft": 13,
+      "verdict": "Act",
+      "fix": [
+        "Set the runtime ID to `nodejs22` or `nodejs24`, then deploy again.",
+        "Pick `nodejs24` for longer support. Node.js 24 is decommissioned October 31, 2028, and Node.js 22 on October 31, 2027."
+      ],
+      "url": "https://timetobail.com/e/cloud-functions-nodejs-20-decommission-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf",
+        "firebase.json",
+        "package.json",
+        "*.{sh,yml,yaml}",
+        "Makefile"
+      ],
+      "pattern": "--runtime[= ]nodejs20(?![\\w.])|\\bruntime\\s*=\\s*\"nodejs20\"|\"runtime\"\\s*:\\s*\"nodejs20\"|\\bruntime:[ \\t]*[\"']?nodejs20[\"']?[ \\t]*\\r?$",
+      "fileRequires": "google_cloudfunctions|gcloud functions|\"functions\"|deploy-cloud-functions",
+      "hint": "Set the runtime to nodejs22 or nodejs24 and deploy each function again."
+    },
+    {
+      "ruleId": "aws-lambda-python-3-10",
+      "eventId": "evt_aws_lambda_python_3_10_deprecation_2026",
+      "slug": "aws-lambda-python-3-10-deprecation-2026",
+      "title": "Lambda runtime python3.10",
+      "event": "AWS Lambda Python 3.10 runtime deprecated October 31, 2026",
+      "gateAt": "2026-10-31",
+      "daysLeft": 14,
+      "verdict": "Act",
+      "fix": [
+        "Find your `python3.10` functions. Trusted Advisor lists them under AWS Lambda Functions Using Deprecated Runtimes.",
+        "Change the runtime to `python3.12`, `python3.13` or `python3.14`. Test it before you ship.",
+        "Use versions and aliases, so you can roll back.",
+        "Finish before July 29, 2027 (no new functions) and August 31, 2027 (no updates)."
+      ],
+      "url": "https://timetobail.com/e/aws-lambda-python-3-10-deprecation-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "serverless.{yml,yaml}",
+        "template.{yml,yaml,json}",
+        "*.template.{yml,yaml,json}",
+        "*.tf",
+        "*.{ts,js,py,java,cs,go}"
+      ],
+      "pattern": "\\b[Rr]untime[\"']?\\s*[:=]\\s*[\"']?python3\\.10(?![\\d.])|\\bRuntime[._]PYTHON_3_10\\b",
+      "hint": "Set the runtime to python3.12, python3.13 or python3.14, rebuild layers and test before you deploy."
+    },
+    {
+      "ruleId": "heroku-22-stack",
+      "eventId": "evt_heroku_22_stack_end_of_life_2026",
+      "slug": "heroku-22-stack-end-of-life-2026",
+      "title": "Heroku stack heroku-22",
+      "event": "Heroku-22 stack: builds start failing November 1, 2026",
+      "gateAt": "2026-11-01",
+      "daysLeft": 15,
+      "verdict": "Act",
+      "fix": [
+        "Try the new stack on a test or staging app first.",
+        "Set the stack: `heroku stack:set heroku-26 -a <app name>` (or `heroku-24`).",
+        "Build again: `git commit --allow-empty -m \"Upgrading to heroku-26\"`, then `git push heroku main`.",
+        "Set `\"stack\": \"heroku-26\"` in app.json, so Review Apps and Heroku CI use it too."
+      ],
+      "url": "https://timetobail.com/e/heroku-22-stack-end-of-life-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "app.json",
+        "heroku.yml"
+      ],
+      "pattern": "\"stack\"\\s*:\\s*\"heroku-22\"|\\bstack:[ \\t]*[\"']?heroku-22\\b",
+      "hint": "Set \"stack\": \"heroku-26\" (or heroku-24) and run heroku stack:set for each app, then build again."
+    },
+    {
+      "ruleId": "github-actions-macos-14",
+      "eventId": "evt_github_actions_macos_14_retirement_2026",
+      "slug": "github-actions-macos-14-retirement-2026",
+      "title": "GitHub Actions runner macos-14",
+      "event": "GitHub Actions macos-14 runners retire November 2, 2026",
+      "gateAt": "2026-11-02",
+      "daysLeft": 16,
+      "verdict": "Act",
+      "fix": [
+        "Search `.github/workflows` for `runs-on: macos-14`.",
+        "Change `macos-14` to `macos-latest`, `macos-15` or `macos-26`.",
+        "For large runners, use `macos-15-large`. For xlarge, use `macos-15-xlarge` or `macos-26-xlarge`."
+      ],
+      "url": "https://timetobail.com/e/github-actions-macos-14-retirement-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        ".github/workflows/*.{yml,yaml}"
+      ],
+      "pattern": "(?<![\\w.-])macos-14(?:-large|-xlarge)?(?![\\w.-])",
+      "hint": "Change the runner label to macos-15, macos-26 or macos-latest (keep -large or -xlarge if you use them)."
+    },
+    {
+      "ruleId": "opensearch-legacy-versions",
+      "eventId": "evt_amazon_opensearch_legacy_extended_support_2026",
+      "slug": "amazon-opensearch-legacy-extended-support-2026",
+      "title": "OpenSearch Service legacy version",
+      "event": "OpenSearch Service: old versions cost more from November 7, 2026",
+      "gateAt": "2026-11-07",
+      "daysLeft": 21,
+      "verdict": "Act",
+      "fix": [
+        "Check the version of each domain: In the OpenSearch Service console, list your domains and their engine versions."
+      ],
+      "url": "https://timetobail.com/e/amazon-opensearch-legacy-extended-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf",
+        "*.{yml,yaml,json}",
+        "*.{ts,js,py,java,go,cs}"
+      ],
+      "pattern": "\\b(?:Elasticsearch_(?:1\\.5|2\\.3|5\\.[1-5]|6\\.[0-7]|7\\.[1-8])|OpenSearch_(?:1\\.[0-2]|2\\.[3-9]))(?![\\d.])|\\bEngineVersion\\.(?:ELASTICSEARCH_(?:1_5|2_3|5_[1-5]|6_[0-7]|7_[1-8])|OPENSEARCH_(?:1_[0-2]|2_[3-9]))(?![\\d_])|\\belasticsearch_version\\s*=\\s*\"(?:1\\.5|2\\.3|5\\.[1-5]|6\\.[0-7]|7\\.[1-8])\"",
+      "hint": "Upgrade the domain to the latest OpenSearch version to stop the Extended Support charge."
+    },
+    {
+      "ruleId": "azure-functions-in-process",
+      "eventId": "evt_azure_functions_in_process_end_of_support_2026",
+      "slug": "azure-functions-in-process-end-of-support-2026",
+      "title": "Azure Functions in-process (dotnet)",
+      "event": "Azure Functions in-process model support ends November 10, 2026",
+      "gateAt": "2026-11-10",
+      "daysLeft": 24,
+      "verdict": "Act",
+      "fix": [
+        "Find in-process apps: Look for function apps with FUNCTIONS_WORKER_RUNTIME set to dotnet. Microsoft gives a PowerShell script for this."
+      ],
+      "url": "https://timetobail.com/e/azure-functions-in-process-end-of-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.json",
+        "*.tf",
+        "*.bicep",
+        "*.{yml,yaml}",
+        "*.{sh,ps1}"
+      ],
+      "pattern": "FUNCTIONS_WORKER_RUNTIME[\"']?\\s*[,:=]?\\s*(?:[\"']?value[\"']?\\s*:\\s*)?[\"']?dotnet(?![\\w-])",
+      "hint": "Move the app to the isolated worker model on .NET 10 and set FUNCTIONS_WORKER_RUNTIME to dotnet-isolated."
+    },
+    {
+      "ruleId": "dotnet-8-9-image",
+      "eventId": "evt_dotnet_8_9_end_of_support_2026",
+      "slug": "dotnet-8-9-end-of-support-2026",
+      "title": ".NET 8 or 9 container image",
+      "event": ".NET 8 and .NET 9 end of support: November 10, 2026",
+      "gateAt": "2026-11-10",
+      "daysLeft": 24,
+      "verdict": "Act",
+      "fix": [
+        "Find apps on .NET 8 and 9: Check the TargetFramework in each project file. Look for net8.0 and net9.0."
+      ],
+      "url": "https://timetobail.com/e/dotnet-8-9-end-of-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "Dockerfile",
+        "*.Dockerfile",
+        "Dockerfile.*",
+        "*.{yml,yaml}"
+      ],
+      "pattern": "mcr\\.microsoft\\.com/dotnet/(?:aspnet|runtime|runtime-deps|sdk):[89]\\.0(?!\\d)",
+      "hint": "Use the .NET 10 images (tag 10.0) and set TargetFramework to net10.0."
+    },
+    {
+      "ruleId": "dotnet-8-9-project",
+      "eventId": "evt_dotnet_8_9_end_of_support_2026",
+      "slug": "dotnet-8-9-end-of-support-2026",
+      "title": ".NET 8 or 9 target framework",
+      "event": ".NET 8 and .NET 9 end of support: November 10, 2026",
+      "gateAt": "2026-11-10",
+      "daysLeft": 24,
+      "verdict": "Act",
+      "fix": [
+        "Find apps on .NET 8 and 9: Check the TargetFramework in each project file. Look for net8.0 and net9.0."
+      ],
+      "url": "https://timetobail.com/e/dotnet-8-9-end-of-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{csproj,fsproj,vbproj}",
+        "Directory.Build.props",
+        "Directory.Build.targets"
+      ],
+      "pattern": "<TargetFrameworks?>[^<]*?(?<![\\w.])net[89]\\.0(?!\\d)",
+      "exclude": "net1\\d\\.\\d",
+      "hint": "Set TargetFramework to net10.0, update NuGet packages and build with the .NET 10 SDK."
+    },
+    {
+      "ruleId": "dotnet-8-9-sdk",
+      "eventId": "evt_dotnet_8_9_end_of_support_2026",
+      "slug": "dotnet-8-9-end-of-support-2026",
+      "title": ".NET 8 or 9 SDK pinned",
+      "event": ".NET 8 and .NET 9 end of support: November 10, 2026",
+      "gateAt": "2026-11-10",
+      "daysLeft": 24,
+      "verdict": "Act",
+      "fix": [
+        "Find apps on .NET 8 and 9: Check the TargetFramework in each project file. Look for net8.0 and net9.0."
+      ],
+      "url": "https://timetobail.com/e/dotnet-8-9-end-of-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "global.json"
+      ],
+      "pattern": "\"version\"\\s*:\\s*\"[89]\\.\\d+\\.\\d+",
+      "fileRequires": "\"sdk\"",
+      "hint": "Pin a .NET 10 SDK in global.json and set TargetFramework to net10.0."
+    },
+    {
+      "ruleId": "bitbucket-ssh-host",
+      "eventId": "evt_bitbucket_cloud_ssh_host_change_2026",
+      "slug": "bitbucket-cloud-ssh-host-change-2026",
+      "title": "SSH to bitbucket.org",
+      "event": "Bitbucket Cloud SSH moves to ssh.bitbucket.org by November 12, 2026",
+      "gateAt": "2026-11-12",
+      "daysLeft": 26,
+      "verdict": "Act",
+      "fix": [
+        "Run `git remote -v` in each repo. Look for `git@bitbucket.org:`.",
+        "Switch it: `git remote set-url origin git@ssh.bitbucket.org:<workspace>/<repo>.git`",
+        "On the first connect, check the host key fingerprint against the list Atlassian publishes, then type yes. In CI, add the keys first: `curl -s https://bitbucket.org/site/ssh | sed 's/bitbucket.org/ssh.bitbucket.org/' >> ~/.ssh/known_hosts`",
+        "Change SSH links in CI and scripts. If a firewall limits SSH, allow ssh.bitbucket.org on port 22."
+      ],
+      "url": "https://timetobail.com/e/bitbucket-cloud-ssh-host-change-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        ".gitmodules",
+        "*.{yml,yaml,sh,bash,ps1,tf}",
+        "Makefile",
+        "package.json",
+        "requirements*.txt",
+        "Gemfile",
+        "composer.json",
+        "Cargo.toml",
+        "Podfile",
+        "Dockerfile",
+        "*.Dockerfile",
+        "Dockerfile.*"
+      ],
+      "pattern": "\\bgit@bitbucket\\.org[:/]|ssh://(?:[\\w.-]+@)?bitbucket\\.org\\b|ssh-keyscan\\b[^\\n#]*?[ \\t]bitbucket\\.org\\b",
+      "hint": "Use git@ssh.bitbucket.org:<workspace>/<repo>.git and add the new host key to known_hosts."
+    },
+    {
+      "ruleId": "auth0-rules-hooks",
+      "eventId": "evt_auth0_rules_hooks_end_of_life_2026",
+      "slug": "auth0-rules-hooks-end-of-life-2026",
+      "title": "Auth0 Rule or Hook in Terraform",
+      "event": "Auth0 Rules and Hooks reach end of life November 18, 2026",
+      "gateAt": "2026-11-18",
+      "daysLeft": 32,
+      "verdict": "Act",
+      "fix": [
+        "List your Rules and Hooks: In the Auth0 Dashboard, note every active Rule and Hook and what it does."
+      ],
+      "url": "https://timetobail.com/e/auth0-rules-hooks-end-of-life-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf"
+      ],
+      "pattern": "^[ \\t]*resource\\s+\"auth0_(?:rule|rule_config|hook)\"",
+      "hint": "Move each Rule and Hook to an Action on the Post-Login trigger, then turn the Rule off."
+    },
+    {
+      "ruleId": "azure-openai-o-series",
+      "eventId": "evt_azure_openai_o_series_retirement_2026",
+      "slug": "azure-openai-o-series-retirement-2026",
+      "title": "Azure OpenAI o-series deployment",
+      "event": "Azure OpenAI o1, o3, o3-mini and o4-mini retire November 19, 2026",
+      "gateAt": "2026-11-19",
+      "daysLeft": 33,
+      "verdict": "Act",
+      "fix": [
+        "List your deployments: Check each Azure OpenAI deployment: model, version and deployment type."
+      ],
+      "url": "https://timetobail.com/e/azure-openai-o-series-retirement-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf",
+        "*.bicep",
+        "*.json"
+      ],
+      "pattern": "\\bname[\"']?\\s*[:=]\\s*[\"'](?:o1|o3|o3-mini|o4-mini)[\"']",
+      "fileRequires": "azurerm_cognitive_deployment|Microsoft\\.CognitiveServices/accounts/deployments",
+      "hint": "Move o1 and o3 to gpt-5.6-sol, and o3-mini and o4-mini to gpt-5.6-terra. Provisioned deployments do not upgrade by themselves."
+    },
+    {
+      "ruleId": "eks-1-31-eksctl",
+      "eventId": "evt_amazon_eks_1_31_end_of_extended_support_2026",
+      "slug": "amazon-eks-1-31-end-of-extended-support-2026",
+      "title": "EKS cluster on 1.31 (eksctl)",
+      "event": "Amazon EKS 1.31 extended support ends November 26, 2026",
+      "gateAt": "2026-11-26",
+      "daysLeft": 40,
+      "verdict": "Act",
+      "fix": [
+        "Check cluster versions: In the EKS console, look at the Kubernetes version of each cluster. Note any on 1.31 to 1.34."
+      ],
+      "url": "https://timetobail.com/e/amazon-eks-1-31-end-of-extended-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{yml,yaml}"
+      ],
+      "pattern": "^[ \\t]*version:[ \\t]*[\"']?1\\.31[\"']?[ \\t]*\\r?$",
+      "fileRequires": "eksctl\\.io",
+      "hint": "Upgrade the cluster to 1.32 or newer. After the date AWS may upgrade it, and that cannot be rolled back."
+    },
+    {
+      "ruleId": "eks-1-31-terraform",
+      "eventId": "evt_amazon_eks_1_31_end_of_extended_support_2026",
+      "slug": "amazon-eks-1-31-end-of-extended-support-2026",
+      "title": "EKS cluster on 1.31",
+      "event": "Amazon EKS 1.31 extended support ends November 26, 2026",
+      "gateAt": "2026-11-26",
+      "daysLeft": 40,
+      "verdict": "Act",
+      "fix": [
+        "Check cluster versions: In the EKS console, look at the Kubernetes version of each cluster. Note any on 1.31 to 1.34."
+      ],
+      "url": "https://timetobail.com/e/amazon-eks-1-31-end-of-extended-support-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf"
+      ],
+      "pattern": "\\b(?:cluster_version|kubernetes_version|version)\\s*=\\s*\"1\\.31\"",
+      "fileRequires": "aws_eks_cluster|aws_eks_node_group|terraform-aws-modules/eks",
+      "hint": "Upgrade the cluster to 1.32 or newer. After the date AWS may upgrade it, and that cannot be rolled back."
+    },
+    {
+      "ruleId": "claude-sonnet-4-5",
+      "eventId": "evt_claude_sonnet_4_5_retirement_2026",
+      "slug": "claude-sonnet-4-5-retirement-2026",
+      "title": "Claude Sonnet 4.5 on the Claude API",
+      "event": "Claude Sonnet 4.5 retires on the Claude API on November 30, 2026",
+      "gateAt": "2026-11-30",
+      "daysLeft": 44,
+      "verdict": "Act",
+      "fix": [
+        "Find calls to the old model: Search your code and settings for claude-sonnet-4-5-20250929."
+      ],
+      "url": "https://timetobail.com/e/claude-sonnet-4-5-retirement-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}"
+      ],
+      "pattern": "([\"'\\x60])(?:claude-sonnet-4-5(?:-20250929)?)\\1",
+      "hint": "Change the model to claude-sonnet-5-5 and test your prompts."
+    },
+    {
+      "ruleId": "claude-sonnet-4-5-config",
+      "eventId": "evt_claude_sonnet_4_5_retirement_2026",
+      "slug": "claude-sonnet-4-5-retirement-2026",
+      "title": "Claude Sonnet 4.5 on the Claude API",
+      "event": "Claude Sonnet 4.5 retires on the Claude API on November 30, 2026",
+      "gateAt": "2026-11-30",
+      "daysLeft": 44,
+      "verdict": "Act",
+      "fix": [
+        "Find calls to the old model: Search your code and settings for claude-sonnet-4-5-20250929."
+      ],
+      "url": "https://timetobail.com/e/claude-sonnet-4-5-retirement-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}"
+      ],
+      "pattern": "^[ \\t]*[\"']?[\\w.-]*model[\\w.-]*[\"']?[ \\t]*[:=][ \\t]*[\"']?(?:claude-sonnet-4-5(?:-20250929)?)[\"']?[ \\t]*(?:#.*)?\\r?$",
+      "flags": "i",
+      "hint": "Change the model to claude-sonnet-5-5 and test your prompts."
+    },
+    {
+      "ruleId": "openai-evals-prompts",
+      "eventId": "evt_openai_evals_prompts_agent_builder_shutdown_2026",
+      "slug": "openai-evals-prompts-agent-builder-shutdown-2026",
+      "title": "OpenAI Evals or reusable prompt",
+      "event": "OpenAI Evals, reusable prompts and Agent Builder shut down November 30",
+      "gateAt": "2026-11-30",
+      "daysLeft": 44,
+      "verdict": "Bail",
+      "fix": [
+        "Copy your evals before October 31: After October 31 they are read-only. Save the test data and grader settings you use."
+      ],
+      "url": "https://timetobail.com/e/openai-evals-prompts-agent-builder-shutdown-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}"
+      ],
+      "pattern": "[\"']pmpt_\\w{6,}[\"']|\\.evals\\.(?:create|list|retrieve|update|delete|runs)\\b|/v1/(?:evals|prompts)\\b",
+      "fileRequires": "openai",
+      "fileFlags": "i",
+      "hint": "Move prompt text into your code, save the evals you need (they go read-only first) and plan the move to Promptfoo."
+    },
+    {
+      "ruleId": "openai-gpt-5-o3-snapshots",
+      "eventId": "evt_openai_gpt_5_o3_image_models_shutdown_2026",
+      "slug": "openai-gpt-5-o3-image-models-shutdown-2026",
+      "title": "OpenAI GPT-5, o3 or image snapshot",
+      "event": "OpenAI retires early GPT-5 snapshots, o3 and old image models",
+      "gateAt": "2026-12-01",
+      "daysLeft": 45,
+      "verdict": "Act",
+      "fix": [
+        "List the models you call: Search for gpt-5-2025-08-07, gpt-5-mini, gpt-5-nano, gpt-5-pro, o3, o3-pro and older gpt-image names."
+      ],
+      "url": "https://timetobail.com/e/openai-gpt-5-o3-image-models-shutdown-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}",
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}"
+      ],
+      "pattern": "(?<![\\w.-])(?:gpt-image-1-mini|gpt-image-1\\.5|chatgpt-image-latest|gpt-5-2025-08-07|gpt-5-pro-2025-10-06|gpt-5-mini-2025-08-07|gpt-5-nano-2025-08-07|o3-2025-04-16|o3-pro-2025-06-10)(?![\\w.-])",
+      "hint": "Move to gpt-5.6-sol, gpt-5.6-terra or gpt-5.6-luna; image models go to gpt-image-2.5-sunburst or gpt-image-2.5-flare."
+    },
+    {
+      "ruleId": "prisma-accelerate",
+      "eventId": "evt_prisma_accelerate_retired_2026",
+      "slug": "prisma-accelerate-retired-2026",
+      "title": "Prisma Accelerate connection",
+      "event": "Prisma Accelerate is retired on December 1, 2026",
+      "gateAt": "2026-12-01",
+      "daysLeft": 45,
+      "verdict": "Bail",
+      "fix": [
+        "Find Accelerate connection strings: Search your env files for prisma+postgres://accelerate.prisma-data.net."
+      ],
+      "url": "https://timetobail.com/e/prisma-accelerate-retired-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}",
+        "*.{json,ts,js,mjs,cjs}",
+        "Dockerfile",
+        "*.Dockerfile",
+        "Dockerfile.*"
+      ],
+      "pattern": "prisma(?:\\+postgres)?://accelerate\\.prisma-data\\.net",
+      "hint": "Switch to a pooled connection or the serverless driver, and remove cacheStrategy from your queries."
+    },
+    {
+      "ruleId": "hcp-vagrant-registry",
+      "eventId": "evt_hcp_vagrant_shutdown_2026",
+      "slug": "hcp-vagrant-shutdown-2026",
+      "title": "Vagrant box from the public registry",
+      "event": "HCP Vagrant and the public box registry end December 31, 2026",
+      "gateAt": "2026-12-31",
+      "daysLeft": 75,
+      "verdict": "Bail",
+      "fix": [
+        "List the boxes you use: Check each Vagrantfile for config.vm.box names that come from the public registry."
+      ],
+      "url": "https://timetobail.com/e/hcp-vagrant-shutdown-2026?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "Vagrantfile"
+      ],
+      "pattern": "\\.vm\\.box\\s*=\\s*[\"'][\\w.-]+/[\\w.-]+[\"']",
+      "fileExcludes": "\\.vm\\.box_url\\s*=",
+      "hint": "Host the boxes you use somewhere else (for example S3) and set config.vm.box_url."
+    },
+    {
+      "ruleId": "cloud-sql-mysql-8",
+      "eventId": "evt_cloud_sql_mysql_8_extended_support_2027",
+      "slug": "cloud-sql-mysql-8-extended-support-2027",
+      "title": "Cloud SQL on MySQL 8.0",
+      "event": "Cloud SQL for MySQL 8.0 costs extra from January 1, 2027",
+      "gateAt": "2027-01-01",
+      "daysLeft": 76,
+      "verdict": "Act",
+      "fix": [
+        "List your instances and versions: In the console, open Cloud SQL and check the database version of each instance and replica."
+      ],
+      "url": "https://timetobail.com/e/cloud-sql-mysql-8-extended-support-2027?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf"
+      ],
+      "pattern": "\\bdatabase_version\\s*=\\s*\"MYSQL_8_0(?:_\\d+)?\"",
+      "hint": "Plan the upgrade to a newer MySQL major version, or budget for the extended support fee per vCPU."
+    },
+    {
+      "ruleId": "google-custom-search-api",
+      "eventId": "evt_google_custom_search_json_api_shutdown_2027",
+      "slug": "google-custom-search-json-api-shutdown-2027",
+      "title": "Custom Search JSON API call",
+      "event": "Google Custom Search JSON API ends for current users January 1, 2027",
+      "gateAt": "2027-01-01",
+      "daysLeft": 76,
+      "verdict": "Bail",
+      "fix": [
+        "List what uses the API: Find every app, script and plugin that calls the Custom Search JSON API with your key."
+      ],
+      "url": "https://timetobail.com/e/google-custom-search-json-api-shutdown-2027?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}",
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}",
+        "*.json"
+      ],
+      "pattern": "googleapis\\.com/customsearch/v1|\\bbuild\\(\\s*[\"']customsearch[\"']|\\bgoogle\\.customsearch\\(",
+      "hint": "Move to Vertex AI Search (up to 50 domains) or another search API."
+    },
+    {
+      "ruleId": "windows-server-2016",
+      "eventId": "evt_windows_server_2016_end_of_support_2027",
+      "slug": "windows-server-2016-end-of-support-2027",
+      "title": "Windows Server 2016 image",
+      "event": "Windows Server 2016 support ends January 12, 2027",
+      "gateAt": "2027-01-12",
+      "daysLeft": 87,
+      "verdict": "Act",
+      "fix": [
+        "List your 2016 servers: Find every server and VM on Windows Server 2016, and what runs on it."
+      ],
+      "url": "https://timetobail.com/e/windows-server-2016-end-of-support-2027?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf",
+        "*.bicep",
+        "*.json",
+        "*.{yml,yaml}",
+        "*.pkr.hcl",
+        "Dockerfile",
+        "*.Dockerfile",
+        "Dockerfile.*"
+      ],
+      "pattern": "\\b2016-Datacenter[\\w-]*|\\bWindows_Server-2016-|mcr\\.microsoft\\.com/windows/(?:servercore|nanoserver):(?:ltsc2016|1607)\\b",
+      "hint": "Move these servers, VM images and containers to a newer Windows Server version."
+    },
+    {
+      "ruleId": "app-engine-first-gen",
+      "eventId": "evt_app_engine_first_gen_runtimes_decommission_2027",
+      "slug": "app-engine-first-gen-runtimes-decommission-2027",
+      "title": "App Engine first-gen runtime",
+      "event": "App Engine first-generation runtimes end January 31, 2027",
+      "gateAt": "2027-01-31",
+      "daysLeft": 106,
+      "verdict": "Act",
+      "fix": [
+        "Find apps on old runtimes: In the console, open App Engine and check the runtime of each service and version."
+      ],
+      "url": "https://timetobail.com/e/app-engine-first-gen-runtimes-decommission-2027?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "app.{yaml,yml}",
+        "appengine-web.xml"
+      ],
+      "pattern": "^[ \\t]*runtime:[ \\t]*[\"']?(?:python27|java8|php55|go111)[\"']?[ \\t]*(?:#.*)?\\r?$|<runtime>\\s*java8\\s*</runtime>",
+      "hint": "Move each service to a newer runtime. After the date you cannot deploy on these runtimes."
+    },
+    {
+      "ruleId": "exchange-online-ews",
+      "eventId": "evt_exchange_online_ews_shutdown_2027",
+      "slug": "exchange-online-ews-shutdown-2027",
+      "title": "Exchange Online EWS endpoint",
+      "event": "Exchange Online turns off EWS for good on April 1, 2027",
+      "gateAt": "2027-04-01",
+      "daysLeft": 166,
+      "verdict": "Act",
+      "fix": [
+        "Find what still uses EWS: Open the EWS usage reports in the Microsoft 365 admin center. List each app and script."
+      ],
+      "url": "https://timetobail.com/e/exchange-online-ews-shutdown-2027?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}",
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}",
+        "*.{json,ps1,config}"
+      ],
+      "pattern": "outlook\\.office365\\.com/EWS/Exchange\\.asmx",
+      "flags": "i",
+      "hint": "Move the app or script to Microsoft Graph."
+    },
+    {
+      "ruleId": "opsgenie",
+      "eventId": "evt_opsgenie_shutdown_2027",
+      "slug": "opsgenie-shutdown-2027",
+      "title": "Opsgenie resource or API",
+      "event": "Opsgenie shuts down April 5, 2027, and unmoved data is deleted",
+      "gateAt": "2027-04-05",
+      "daysLeft": 170,
+      "verdict": "Bail",
+      "fix": [
+        "Save your setup first: Write down schedules, escalation rules, integrations and routing before you move anything."
+      ],
+      "url": "https://timetobail.com/e/opsgenie-shutdown-2027?utm_source=github-action&utm_medium=bot&utm_campaign=deadline-check",
+      "files": [
+        "*.tf",
+        "*.{py,js,mjs,cjs,ts,tsx,jsx,go,rb,java,kt,cs,php}",
+        "*.{yml,yaml,toml}",
+        "*.env.example",
+        ".env.{example,sample,template}",
+        "*.json"
+      ],
+      "pattern": "^[ \\t]*(?:resource|data)\\s+\"opsgenie_\\w+\"|\\bapi(?:\\.eu)?\\.opsgenie\\.com\\b",
+      "hint": "Move to Jira Service Management (Settings > Plan your move) before your data is deleted."
+    }
+  ]
+}

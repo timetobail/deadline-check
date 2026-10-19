@@ -1,0 +1,7 @@
+service: shop-images
+provider:
+  name: aws
+  runtime: python3.10
+functions:
+  resize:
+    handler: handler.resize

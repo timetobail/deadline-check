@@ -1,0 +1,2 @@
+config.vm.box = "acme/base"
+config.vm.box_url = "https://boxes.acme.dev/base.json"

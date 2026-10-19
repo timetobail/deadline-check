@@ -1,0 +1,1 @@
+lib @ git+ssh://git@bitbucket.org/acme/lib.git@v1

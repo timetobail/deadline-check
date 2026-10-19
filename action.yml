@@ -1,0 +1,43 @@
+name: Time to Bail deadline check
+description: Finds code and config that a dated vendor change will break (runners, runtimes, model ids, hosts) and reports the date and the fix.
+author: Time to Bail
+branding:
+  icon: clock
+  color: orange
+inputs:
+  rules-url:
+    description: Where to GET the rules. An https URL or a file in the workspace. Nothing is sent to it.
+    default: https://timetobail.com/api/deadline-rules.json
+  paths:
+    description: Folders or files to scan, relative to the workspace (comma or newline separated).
+    default: .
+  ignore:
+    description: Names or globs to skip (comma or newline separated).
+    default: node_modules, .git, vendor, dist, build
+  days:
+    description: Report gates within this many days (gates that already passed are always shown).
+    default: '120'
+  create-issue:
+    description: Keep one issue "Vendor deadlines found by Time to Bail" up to date and close it when nothing is found. Needs issues write.
+    default: 'true'
+  fail-on-days:
+    description: Fail the job if a gate is within this many days. 0 = never fail.
+    default: '0'
+  comment-on-pr:
+    description: On pull requests, add or update one comment with the findings. Needs pull-requests write.
+    default: 'false'
+  github-token:
+    description: Token for the issue and the PR comment. The job token is enough.
+    default: ${{ github.token }}
+outputs:
+  count:
+    description: Number of places found within the window.
+  events:
+    description: Number of vendor deadlines those places hit.
+  soonest-days:
+    description: Days left to the nearest gate found (empty when nothing is found).
+  rules-source:
+    description: live, file or snapshot (the bundled rules, used when the fetch fails).
+runs:
+  using: node24
+  main: dist/index.js

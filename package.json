@@ -1,0 +1,31 @@
+{
+  "name": "timetobail-deadline-check",
+  "version": "0.1.0",
+  "description": "Like Dependabot, but for vendor deadlines: finds code and config that a dated vendor change will break.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "timetobail-deadline-check": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "action.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\"",
+    "check": "node dist/cli.js ."
+  },
+  "keywords": [
+    "github-action",
+    "deprecation",
+    "end-of-life",
+    "deadline",
+    "runtime",
+    "vendor"
+  ]
+}

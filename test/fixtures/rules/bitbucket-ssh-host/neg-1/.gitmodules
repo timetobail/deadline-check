@@ -1,0 +1,3 @@
+[submodule "lib"]
+  url = git@ssh.bitbucket.org:acme/lib.git
+  alt = https://bitbucket.org/acme/lib.git
