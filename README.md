@@ -5,6 +5,9 @@ and config in your repo that a dated vendor change will break: a runner label th
 support, a model id that shuts down, an SSH host that moves. It reports each place with the date, the days left, the fix
 and a link to the full notice on [Time to Bail](https://timetobail.com).
 
+**See it live:** [demo repo](https://github.com/timetobail/deadline-check-demo) and the
+[issue it opened](https://github.com/timetobail/deadline-check-demo/issues/1).
+
 Free. The Action is MIT. The rules are open data (CC BY 4.0) from Time to Bail, where every date has a vendor source.
 
 ## What it finds
