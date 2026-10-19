@@ -1,6 +1,6 @@
 {
   "name": "timetobail-deadline-check",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Like Dependabot, but for vendor deadlines: finds code and config that a dated vendor change will break.",
   "type": "module",
   "license": "MIT",

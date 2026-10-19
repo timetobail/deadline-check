@@ -25,3 +25,7 @@ First release.
 ## 0.1.2 — 2026-10-19
 
 - First GitHub Marketplace release. No code changes.
+
+## 0.1.3 — 2026-10-19
+
+- Fix: quote the action description (a colon broke action.yml in 0.1.1 and 0.1.2). Use 0.1.3 or v0.

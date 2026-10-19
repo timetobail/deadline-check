@@ -1,5 +1,5 @@
 name: Time to Bail deadline check
-description: Warns you before cloud and AI vendors break your build: retired runners, runtimes and model ids, with date and fix.
+description: "Warns you before cloud and AI vendors break your build: retired runners, runtimes and model ids, with date and fix."
 author: Time to Bail
 branding:
   icon: clock
