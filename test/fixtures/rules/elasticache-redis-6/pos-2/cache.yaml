@@ -1,0 +1,6 @@
+Resources:
+  Cache:
+    Type: AWS::ElastiCache::ReplicationGroup
+    Properties:
+      Engine: redis
+      EngineVersion: '6.x'

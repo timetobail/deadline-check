@@ -1,0 +1,4 @@
+Resources:
+  Fn:
+    Properties:
+      Runtime: java8.al2

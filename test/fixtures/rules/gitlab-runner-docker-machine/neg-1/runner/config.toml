@@ -1,0 +1,3 @@
+[[runners]]
+  executor = "docker-autoscaler"
+  # executor = "docker+machine"

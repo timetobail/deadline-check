@@ -1,0 +1,4 @@
+test:
+  retry:
+    max: 2
+    when: [server_timeout_running, no_updates_running]

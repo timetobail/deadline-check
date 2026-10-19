@@ -1,0 +1,7 @@
+jobs:
+  ios:
+    macos:
+      xcode: 26.4.0
+  old:
+    macos:
+      xcode: 14.3.10

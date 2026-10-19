@@ -1,0 +1,2 @@
+import vertexai
+model = "gemini-3.6-flash-lite"

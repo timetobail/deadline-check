@@ -1,0 +1,4 @@
+env:
+  DOCKER_CONTENT_TRUST: 1
+steps:
+  - run: docker trust sign acme/app:1.0

@@ -1,0 +1,2 @@
+{ "type": "Microsoft.ContainerService/managedClusters",
+  "properties": { "kubernetesVersion": "1.29.9" } }

@@ -1,0 +1,2 @@
+steps:
+  - run: gcloud functions deploy api --runtime=dotnet8 --trigger-http

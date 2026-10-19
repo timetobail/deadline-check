@@ -1,0 +1,4 @@
+build:
+  retry:
+    max: 1
+    when: [job_execution_timeout, script_failure]

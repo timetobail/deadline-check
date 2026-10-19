@@ -1,0 +1,3 @@
+auth:
+  script:
+    - AUTH=$(echo $CI_JOB_TOKEN | base64)

@@ -1,0 +1,2 @@
+runtime: go127
+main: ./cmd/go124

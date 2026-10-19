@@ -1,0 +1,2 @@
+runtime: ruby33
+entrypoint: bundle exec rackup

@@ -1,0 +1,4 @@
+jobs:
+  ios:
+    macos:
+      xcode: "26.2.0"

@@ -9,7 +9,7 @@ Free. The Action is MIT. The rules are open data (CC BY 4.0) from Time to Bail, 
 
 ## What it finds
 
-On release day (October 17, 2026), 33 rules for 26 vendor changes, for example:
+On release day (October 19, 2026), 114 rules for 94 vendor changes, for example:
 
 | Change | Gate | Looks for |
 | --- | --- | --- |
@@ -25,9 +25,10 @@ On release day (October 17, 2026), 33 rules for 26 vendor changes, for example:
 | Bitbucket Cloud SSH host moves | Nov 12, 2026 | `git@bitbucket.org:`, `ssh://…bitbucket.org`, `ssh-keyscan bitbucket.org` |
 | Prisma Accelerate retired | Dec 1, 2026 | `prisma+postgres://accelerate.prisma-data.net` |
 
-Also: Amazon Pinpoint, OpenSearch legacy versions, Auth0 Rules and Hooks, Azure OpenAI o-series deployments, EKS 1.31,
-Claude Sonnet 4.5, OpenAI Evals and reusable prompts, GPT-5 and o3 snapshots, HCP Vagrant boxes, Cloud SQL MySQL 8.0,
-Google Custom Search JSON API, Windows Server 2016 images, App Engine first-gen runtimes, Exchange Online EWS, Opsgenie.
+Also: AI models (OpenAI GPT-4o/4.1 snapshots, TTS and Whisper, Azure OpenAI, Gemini API and Vertex AI, Amazon Bedrock,
+Claude, Together AI, Mistral), CI (GitHub ubuntu-22.04 runners, Azure Pipelines images, GitLab 20.0 removals, CircleCI
+images and APIs, Docker Content Trust, Docker Hub autobuilds), cloud runtimes (Lambda, Cloud Run functions, App Engine,
+Azure Functions), Kubernetes versions (GKE, EKS, AKS), databases (RDS and Aurora PostgreSQL, Cloud SQL, ElastiCache) and more.
 The live list: <https://timetobail.com/api/deadline-rules.json>.
 
 The rules are strict on purpose. A false alarm costs more than a miss, so a rule only fires on text that clearly names the

@@ -1,0 +1,4 @@
+Globals:
+  Function:
+    Runtime: java17.al2023
+    Other: java21

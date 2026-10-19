@@ -1,0 +1,3 @@
+Host github.com
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostKeyAlgorithms ssh-rsa,rsa-sha2-512

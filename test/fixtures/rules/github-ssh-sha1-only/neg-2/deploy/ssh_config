@@ -1,0 +1,2 @@
+Host gitlab.example.com
+  HostKeyAlgorithms ssh-rsa

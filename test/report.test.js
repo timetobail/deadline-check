@@ -60,11 +60,11 @@ test('job summary: table with file:line linked to the blob at the commit', async
     + '/.github/workflows/ci.yml#L11)'));
   assert.match(md, /\| Nov 2, 2026 \| 16 days left \|/);
   assert.match(md, /\[What to do\]\(https:\/\/timetobail\.com\/e\/github-actions-macos-14-retirement-2026\?utm_source=github-action/);
-  assert.match(md, /Rules: local file, generated 2026-10-17\. Scanned \d+ files\./);
+  assert.match(md, /Rules: local file, generated 2026-10-19\. Scanned \d+ files\./);
   assert.match(md, /your code never leaves the runner/);
   const snap = renderSummary({ groups: [], repo: REPO, rules: { ...r.rules, source: 'snapshot', error: 'timed out' }, stats: r.stats, days: 120 });
   assert.match(snap, /No vendor deadlines found within 120 days\./);
-  assert.match(snap, /Rules: bundled snapshot from 2026-10-17 \(could not fetch .*: timed out\)\./);
+  assert.match(snap, /Rules: bundled snapshot from 2026-10-19 \(could not fetch .*: timed out\)\./);
 });
 
 test('summary escapes table cells', () => {
